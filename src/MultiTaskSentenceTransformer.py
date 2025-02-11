@@ -5,9 +5,9 @@ import torch.optim as optim
 
 """"
 A multitask learning model that adds a single hidden layer mlp head each for classification of two tasks.
-Each mlp uses a hidden layer output size of 128. The input dependant on the embeddging size (our model is 384).
+Each mlp uses a hidden layer output size of 128. The input dependant on the embedding size (our model is 384).
 We use a RELU activation function.
-The transformer weight are frozen but can be unfrozen and finetunesfine tuned if need be. We freeze them to 
+The transformer weight are frozen but can be unfrozen and finetuned if need be. We freeze them to 
 avoid overfitting/catastrophic forgetting.
 """
 class MultiTaskSentenceTransformer(nn.Module):
