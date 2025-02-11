@@ -1,4 +1,10 @@
 # fetch
+Task 1: Sentence Transformer Implementation
+Please see src/SimpleSentenceTransformer.py
+
+Task 2: Multi-Task Learning Expansion
+Please see src/MultiTaskSentenceTransformer.py
+
 Task 3: Training Considerations
 Discuss the implications and advantages of each scenario and explain your rationale as to how
 the model should be trained given the following:
@@ -15,7 +21,9 @@ Consider a scenario where transfer learning can be beneficial. Explain how you w
 the transfer learning process, including:
 1. The choice of a pre-trained model.
 TRansfer learning is beneficial if there are already pretrained models that have already captured semantic and cotextual knowledge. The choice of the model depends on the training domain as well as the task that it is being used for. For instance we used all-MiniLM-L6-v2 as our transformer backbone to our classification tasks because it is optimized for semantic similarity. It is also more lightweight then models like BERT.
+
 2. The layers you would freeze/unfreeze.
 Either I would freeze the entire transformer backbone or freeze the layers from top down (unfreeze the bottom layers)
+
 3. The rationale behind these choices.
 If the transfomer model is trained from within the same domain there may not be a need to retrain the embeddings. Simply transfer the embeddings and use them for a subsequent task. If there needs to be fine tuning then the top layers that have more generalized knowledge should be frozen and the bottom layers unfrozen. Unfreezing the top layers migh lead to catastrophic forgetting.
